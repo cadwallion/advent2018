@@ -1,4 +1,4 @@
-data = File.read File.join(__dir__, "input.txt")
+data = File.read File.join(__dir__, "/../input.txt")
 parsed_data = data.split("\n").map { |n| n.gsub("+", "").to_i }
 starting_frequency = 0
 found_frequencies = []

@@ -12,7 +12,7 @@ def calibrate(starting_frequency, found_frequencies, frequency_map):
     return calibrate(current_frequency, found_frequencies, frequency_map)
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-with open(dir_path + "/input.txt", "r") as datafile:
+with open(dir_path + "/../input.txt", "r") as datafile:
     data = map(int, datafile.readlines())
 
     calibrated_frequency = calibrate(0, [], data)
