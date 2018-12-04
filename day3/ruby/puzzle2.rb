@@ -26,16 +26,17 @@ coordinates = data.split("\n").map do |line|
     (claim[:y1]...claim[:y2]).each do |y|
       coord = "#{x},#{y}"
       id = claim[:id]
-      fabric[coord].push(id)
 
-      if fabric[coord].length > 1
+      if fabric[coord].length > 0
         overlapped_id = fabric[coord].first
 
         valid_claims.subtract([id, overlapped_id])
         invalid_claims.merge([id, overlapped_id])
-      elsif !invalid_claims.include? id
-        valid_claims.add(id)
+      else
+        fabric[coord].push(id)
       end
+
+      valid_claims.add(id) if !invalid_claims.include? id
     end
   end
 end
